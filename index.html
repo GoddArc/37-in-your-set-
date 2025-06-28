@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Is 37 in Your Set?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .card {
+      background: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      text-align: center;
+    }
+
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    button.no {
+      background-color: #f44336;
+    }
+
+    .response {
+      margin-top: 20px;
+      font-size: 1.2rem;
+    }
+
+    input {
+      padding: 8px;
+      width: 100%;
+      margin-top: 10px;
+      font-size: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Is 37 in your set?</h1>
+    <button onclick="handleYes()">Yes</button>
+    <button class="no" onclick="handleNo()">No</button>
+    <div class="response" id="response"></div>
+  </div>
+
+  <script>
+    function handleYes() {
+      document.getElementById('response').innerHTML = '🍪 Here’s a cookie!';
+    }
+
+    function handleNo() {
+      document.getElementById('response').innerHTML = `
+        <p>Why not?</p>
+        <input type="text" placeholder="Type your reason..." oninput="logReason(this.value)">
+      `;
+    }
+
+    function logReason(reason) {
+      console.log("User reason:", reason);
+      // You could later send this to a server if needed
+    }
+  </script>
+</body>
+</html>
